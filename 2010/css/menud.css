@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.floating-menu {
+  position: fixed;
+  top: 50%;
+  left: -150px; /* Ocultar el menú fuera del área visible */
+  width: 150px;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  transition: left 0.3s; /* Agregar transición para suavizar el efecto */
+}
+
+.floating-menu:hover {
+  left: 0; /* Mostrar el menú cuando se pasa el mouse sobre él */
+}
+
+.floating-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.floating-menu ul li {
+  margin-bottom: 5px;
+}
+
+.floating-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  display: block;
+}
+
+.floating-menu ul li a:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+  

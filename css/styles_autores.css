@@ -33,7 +33,6 @@
     position: relative;
     margin: 10px;
     cursor: pointer;
-    
 }
 
 .team-member img {
@@ -71,29 +70,14 @@
 
 .team-member:hover .description {
     opacity: 1;
-   
-    
 }
-/*vertical
-/*.team-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background: #fff;
-    box-sizing: border-box;
-}*/
-/* horizontal */
+
+/* Estilo de team-info para que esté siempre visible */
 .team-info {
-    display: none;
-    flex-direction: row; /* Asegura que los elementos dentro estén en una fila */
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: flex-start; /* Alinea los elementos al inicio */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     margin-top: 40px;
     width: 100%;
     max-width: 800px;
@@ -102,30 +86,20 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background: #fff;
     box-sizing: border-box;
+    position: relative;
+    scroll-margin-top: 20px;
+}
+
+/* Estilo adicional para hacer que el anclaje se vea destacado */
+#team-info:target {
+    border: 2px solid #007BFF;
+    background-color: #f0f8ff;
 }
 
 .member-photo {
-    margin-right: 20px; /* Añade un margen a la derecha de la imagen */
-    margin-bottom: 20px; 
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
-/*vertical
-.member-photo img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-}*/
-
-.member-info {
-    text-align: left; /* Alinea el texto a la izquierda */
-    width: calc(100% - 220px); /* Ajusta el ancho del texto restando el ancho de la imagen y su margen */
-}
-
-/*vertical*/
-/*.member-photo {
-    margin-bottom: 20px; 
-    
-}*/
 
 .member-photo img {
     width: 200px;
@@ -133,16 +107,17 @@
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-
-   
-
 }
 
-/*Vertical
+/* para que no se vea en un principio */
+.team-info {
+    display: none;
+}
+
 .member-info {
-    text-align: center;
-    width: 100%;
-}*/
+    text-align: left;
+    width: calc(100% - 220px);
+}
 
 .member-info h2 {
     margin-bottom: 10px;
@@ -175,7 +150,4 @@
     }
 }
 
-.team-info {
-    display: none;
-}
 

@@ -1,11 +1,10 @@
-// Espera a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
     // Alterna el menú en dispositivos móviles
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');
 
     menuToggle.addEventListener('click', function() {
-        menu.classList.toggle('active');
+        menu.classList.toggle('show');
     });
 
     // Alterna los submenús
@@ -47,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
             el: '.swiper-pagination', // Paginación (puntos)
             clickable: true, // Hacer que los puntos sean clicables
         },
-        slidesPerView: 3, // Número de slides visibles por cuadro
+        slidesPerView: 1, // Número de slides visibles por cuadro en pantallas pequeñas
         spaceBetween: 10, // Espacio entre las slides
         breakpoints: {
             640: {
@@ -65,5 +64,4 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
 

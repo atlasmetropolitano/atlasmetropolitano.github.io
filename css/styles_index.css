@@ -131,7 +131,7 @@ nav ul.submenu > li:hover > ul.subsubmenu {
     display: flex;
 }
 
-footer {
+/*footer {
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -139,7 +139,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
+}*/
 
 main.holder {
     margin-top: 100px; /* Ajusta según la altura del header */

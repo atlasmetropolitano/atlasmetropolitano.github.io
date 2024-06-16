@@ -3,24 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlas Metropolitano - Autores</title>
+    <title>Atlas Metropolitano - Distribución Espacial</title>
     <!-- Enlace a los estilos CSS -->
     <link rel="stylesheet" href="css/styles_index.css">
     <link rel="stylesheet" href="css/menu_fotante_autores.css">
-    <link rel="stylesheet" href="css/styles_distribucion_espacial.css">
     <link rel="stylesheet" href="css/footer.css">
-
-    <!-- Incluye los estilos del mapa generado por QGIS2Web -->
-    <link rel="stylesheet" href="1991/styles/qgis2web.css">
-    <link rel="stylesheet" href="1991/styles/leaflet.css">
-    <link rel="stylesheet" href="2001/styles/qgis2web.css">
-    <link rel="stylesheet" href="2001/styles/leaflet.css">
-    <link rel="stylesheet" href="2010/styles/qgis2web.css">
-    <link rel="stylesheet" href="2010/styles/leaflet.css">
-    <link rel="stylesheet" href="2022/styles/qgis2web.css">
-    <link rel="stylesheet" href="2022/styles/leaflet.css">
-    
-    
+    <link rel="stylesheet" href="css/percentiles.css">
 </head>
 <body>
     <header>
@@ -68,7 +56,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Equipamiento</a>
-                            <ul class="subsubmenu">
+                            <ul class=" subsubmenu">
                                 <li><a href="#">Educación</a></li>
                                 <li><a href="#">Salud</a></li>
                             </ul>
@@ -188,79 +176,31 @@
         </ul>
     </aside>
 
-
     <main class="holder">
         <h1 class="main-title">Distribución Espacial - Densidad de Población</h1>
-        <section class="content">
-            <div class="text">
-                <h2>Densidad de Población de 1991 - 2001 -2010 -2022</h2>
-                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span id="year-text">1991</span> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.</p>
+        <div class="content">
+            <div class="left-section">
+                <h2 id="map-title">Densidad de Población 1991 al 2022</h2>
+                <p id="map-description">Densidad de Población de población de Buenos Aires de 1991 al 2022</p>
                 <div class="years">
-                    <button class="year-btn active" data-year="1991">1991</button>
-                    <button class="year-btn" data-year="2001">2001</button>
-                    <button class="year-btn" data-year="2010">2010</button>
-                    <button class="year-btn" data-year="2022">2022</button>
+                    <button class="year-button active" onclick="changeMap('1991')">1991</button>
+                    <button class="year-button" onclick="changeMap('2001')">2001</button>
+                    <button class="year-button" onclick="changeMap('2010')">2010</button>
+                    <button class="year-button" onclick="changeMap('2022')">2022</button>
                 </div>
-                <div class="legend">
-                    <h3>Densidad de Población de 1991 - 2001 -2010 -2022</h3>
-                    <ul>
-                        <li><span class="color urban-builtup"></span>0 - 1000</li>
-                        <li><span class="color suburban-builtup"></span>1000 - 4000</li>
-                        <li><span class="color rural-builtup"></span>4000 - 7000</li>
-                        <li><span class="color urban-open"></span>7000 - 11000</li>
-                        <li><span class="color exurban-builtup"></span>más de 11000</li>
-                    </ul>
-                    <h3></h3>
-                    <ul>
-                        <li><span class="color exurban-builtup1"></span></li>
-                        <li><span class="color exurban-open"></span></li>
-                    </ul>
-                    <h3></h3>
-                    <ul>
-                        <li><span class="color rural-open"></span></li>
-                    </ul>
-                </div>
+                <img id="year-image" src="img/1991.jpg" alt="Densidad de Población 1991 a 2022" class="year-image">
             </div>
             <div id="map" class="map-container">
-                <!-- El mapa generado por QGIS2Web se incrusta aquí -->
-                <iframe id="map-frame" src="1991/1991.html" frameborder="0"></iframe>
+                <iframe id="map-frame" src="Densidad/1991/index.html" frameborder="0"></iframe>
             </div>
-        </section>
+        </div>
     </main>
-    <!-- Incluye los scripts del mapa generado por QGIS2Web -->
-    <script src="1991/resources/leaflet.js"></script>
-    <script src="1991/resources/qgis2web_expressions.js"></script>
-    <script src="1991/resources/leaflet-providers.js"></script>
-    <script src="1991/resources/leaflet.control.layers.tree.js"></script>
-    <script src="1991/resources/leaflet-measure.js"></script>
-    <script src="1991/resources/leaflet-hash.js"></script>
-    <script src="1991/resources/Autolinker.min.js"></script>
-    <script src="2001/resources/leaflet.js"></script>
-    <script src="2001/resources/qgis2web_expressions.js"></script>
-    <script src="2001/resources/leaflet-providers.js"></script>
-    <script src="2001/resources/leaflet.control.layers.tree.js"></script>
-    <script src="2001/resources/leaflet-measure.js"></script>
-    <script src="2001/resources/leaflet-hash.js"></script>
-    <script src="2001/resources/Autolinker.min.js"></script>
-    <script src="2010/resources/leaflet.js"></script>
-    <script src="2010/resources/qgis2web_expressions.js"></script>
-    <script src="2010/resources/leaflet-providers.js"></script>
-    <script src="2010/resources/leaflet.control.layers.tree.js"></script>
-    <script src="2010/resources/leaflet-measure.js"></script>
-    <script src="2010/resources/leaflet-hash.js"></script>
-    <script src="2010/resources/Autolinker.min.js"></script>
-    <script src="2022/resources/leaflet.js"></script>
-    <script src="2022/resources/qgis2web_expressions.js"></script>
-    <script src="2022/resources/leaflet-providers.js"></script>
-    <script src="2022/resources/leaflet.control.layers.tree.js"></script>
-    <script src="2022/resources/leaflet-measure.js"></script>
-    <script src="2022/resources/leaflet-hash.js"></script>
-    <script src="2022/resources/Autolinker.min.js"></script>
-    <script src="js/scripts_distribucion_espacial.js"></script>
     
     
     
-     <footer>
+    
+    
+    <footer>
         <div class="footer-container">
             <div class="footer-left">
                 <p>Centro de Información Metropolitana</p>
@@ -275,7 +215,6 @@
                     <a href="#"><img src="img/iconos/instagram.png" alt="Instagram"></a>
                     <a href="#"><img src="img/iconos/linkedin.png" alt="LinkedIn"></a>
                     <a href="#"><img src="img/iconos/jugar.png" alt="YouTube"></a>
-                 
                 </div>
                 <div class="footer-logo">
                     <img src="img/Logo CIM Fondo transparente .png" alt="INDEC">
@@ -288,3 +227,4 @@
     <script src="js/scripts_distribucion_espacial.js"></script>
 </body>
 </html>
+

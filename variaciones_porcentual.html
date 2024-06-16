@@ -6,10 +6,10 @@
     <title>Atlas Metropolitano - Autores</title>
     <!-- Enlace a los estilos CSS -->
     <link rel="stylesheet" href="css/styles_index.css">
-    <link rel="stylesheet" href="css/styles_autores.css">
     <link rel="stylesheet" href="css/menu_fotante_autores.css">
+    <link rel="stylesheet" href="css/styles_poblacion.css">
     <link rel="stylesheet" href="css/footer.css">
-
+    
 </head>
 <body>
     <header>
@@ -160,7 +160,7 @@
                 <li><a href="#">Anexo</a>
                     <ul class="submenu">
                         <li><a href="autores.html">Autores</a></li>
-                        <li><a href="descargas.html">Servicios</a></li>
+                        <li><a href="#">Servicios</a></li>
                     </ul>
             </ul>
         </nav>
@@ -171,81 +171,49 @@
             &#9776;
         </button>
         <ul class="floating-submenu">
-            <li><a href="#">Autores</a></li>
-            <li><a href="descargas.html">Servicios</a></li>
+            <li><a href="#">Variación intercensal (1960/91)</a></li>
+            <li><a href="percentiles.html">Variación porcentual (1991/2001) (2001/2010) (2010/2021) (1991/2022)</a></li>
+            <li><a href="distribucion_espacial.html">Densidad de población (1991/2001/2010/2022)</a></li>
         </ul>
     </aside>
 
+
     <main class="holder">
-        <!-- Título principal -->
-        <h1 class="main-title">Autores y Equipo de Investigación</h1>
-        <!-- Contenido principal de la página de autores -->
-        <section class="team">
-            <div class="team-photo">
-                <div class="team-row">
-                    <!-- Fotos de los miembros del equipo -->
-                    <div class="team-member" data-member="1">
-                        <img src="img/nosotros/Maria_Adela.jpg" alt="María Adela Igarzabal">
-                        <div class="description">María Adela Igarzabal</div>
-                    </div>
-                    <div class="team-member" data-member="2">
-                        <img src="img/nosotros/Patricia_dietrich.jpg" alt="Patricia Dietrich">
-                        <div class="description">Patricia Dietrich</div>
-                    </div>
-                    <div class="team-member" data-member="3">
-                        <img src="img/nosotros/raquel_carrion.jpg" alt="Raquel Ajhuacho Carrión">
-                        <div class="description">Raquel Ajhuacho Carrión</div>
-                    </div>
-                    <div class="team-member" data-member="4">
-                        <img src="img/nosotros/Silvia-Boglioli.jpg" alt="Silvia Boglioli">
-                        <div class="description">Silvia Boglioli</div>
-                    </div>
-                    <div class="team-member" data-member="5">
-                        <img src="img/nosotros/Julio-Cesar-_Benedetti.jpg" alt="Julio Cesar Benedetti">
-                        <div class="description">Julio Cesar Benedetti</div>
-                    </div>
-                    <div class="team-member" data-member="6">
-                        <img src="img/nosotros/Diana-copia.jpg" alt="Diana E. De Pietri">
-                        <div class="description">Diana E. De Pietri</div>
-                    </div>
-                </div>
-                <div class="team-row">
-                    <div class="team-member" data-member="7">
-                        <img src="img/nosotros/alejandro_carcagno.jpg" alt="Alejandro Marcelo Carcagno">
-                        <div class="description">Alejandro Marcelo Carcagno</div>
-                    </div>
-                    <div class="team-member" data-member="8">
-                        <img src="img/nosotros/victoria_majul.jpg" alt="María Victoria Majul">
-                        <div class="description">María Victoria Majul</div>
-                    </div>
-                    <div class="team-member" data-member="9">
-                        <img src="img/nosotros/alejandro_cittadino.jpg" alt="Alejandro Cittadino">
-                        <div class="description">Alejandro Cittadino</div>
-                    </div>
-                    <div class="team-member" data-member="10">
-                        <img src="img/nosotros/natalia_ocello.jpg" alt="Natalia V.Ocello">
-                        <div class="description">Natalia V.Ocello</div>
-                    </div>
-                    <div class="team-member" data-member="11">
-                        <img src="img/nosotros/fernando_tomasi.jpg" alt="Fernando Tomasi">
-                        <div class="description">Fernando Tomasi</div>
-                    </div>
-                    <div class="team-member" data-member="12">
-                        <img src="img/nosotros/Patricia_mayo.jpg" alt="Patricia Mayo">
-                        <div class="description">Patricia Mayo</div>
-                    </div>
-                </div>
+        <h1 class="main-title">Distribución Espacial - Densidad de Población</h1>
+        <section class="map-section">
+            <div class="map-container">
+                <a href="percentiles.html" target="_blank">
+                    <img src="img/1991_2001m.png" alt="Mapa 1991">
+                    <div class="map-description">1991-2001</div>
+                </a>
             </div>
-            <div class="team-info" id="team-info">
-                <!-- Información del miembro seleccionado -->
-                <div class="member-photo">
-                    <img src="img/member1.jpg" alt="Miembro 1" id="selected-photo">
-                </div>
-                <div class="member-info">
-                    <h2 id="member-name">Nombre del Autor 1</h2>
-                    <h3 id="member-role">Role</h3>
-                    <p id="member-description">Director de Marketing<br>Experto en Redes Sociales y Marketing 2.0</p>
-                </div>
+            <div class="map-container">
+                <a href="percentiles.html" target="_blank">
+                    <img src="img/1991_2022m.png" alt="Mapa 2001">
+                    <div class="map-description">1991-2022</div>
+                </a>
+            </div>
+            <div class="map-container">
+                <a href="percentiles.html" target="_blank">
+                    <img src="img/2001_2010m.png" alt="Mapa 2010">
+                    <div class="map-description">2001-2010</div>
+                </a>
+            </div>
+            <div class="map-container">
+                <a href="percentiles.html" target="_blank">
+                    <img src="img/2010_2022m.png" alt="Mapa 2022">
+                    <div class="map-description">2010-2022</div>
+                </a>
+            </div>
+        </section>
+        <section class="text-section">
+            <div class="text-content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum fuga quae vero adipisci, deleniti atque animi quia porro at quas necessitatibus eaque illum, numquam ab sequi in optio aperiam rerum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum fuga quae vero adipisci, deleniti atque animi quia porro at quas necessitatibus eaque illum, numquam ab sequi in optio aperiam rerum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum fuga quae vero adipisci, deleniti atque animi quia porro at quas necessitatibus eaque illum, numquam ab sequi in optio aperiam rerum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum fuga quae vero adipisci, deleniti atque animi quia porro at quas necessitatibus eaque illum, numquam ab sequi in optio aperiam rerum?</p>
+            </div>
+            <div class="chart-container">
+                <a href="pdf/tabla de densidad.pdf" target="_blank">
+                    <img src="img/tabla de densidad.png" alt="Gráfico de Densidad">
+                </a>
             </div>
         </section>
     </main>
@@ -273,7 +241,8 @@
         </div>
     </footer>
     <!-- Enlace a los scripts -->
-    <script src="js/scripts_autores.js"></script>
     <script src="js/scripts_nemu_flotante.js"></script>
+    <script src="js/scripts_poblacion.js"></script>
+
 </body>
 </html>

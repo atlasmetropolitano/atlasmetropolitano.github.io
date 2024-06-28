@@ -7,9 +7,9 @@
     <!-- Enlace a los estilos CSS -->
     <link rel="stylesheet" href="css/styles_index.css">
     <link rel="stylesheet" href="css/menu_fotante_autores.css">
-    <link rel="stylesheet" href="css/styles_poblacion.css">
     <link rel="stylesheet" href="css/footer.css">
-    
+    <link rel="stylesheet" href="css/styles_lineadetiempo.css">
+
 </head>
 <body>
     <header>
@@ -160,7 +160,7 @@
                 <li><a href="#">Anexo</a>
                     <ul class="submenu">
                         
-                        <li><a href="#">Servicios</a></li>
+                        <li><a href="descargas.html">Servicios</a></li>
                     </ul>
             </ul>
         </nav>
@@ -177,46 +177,52 @@
         </ul>
     </aside>
 
-
     <main class="holder">
         <h1 class="main-title">Distribución Espacial - Variaciones Porcentuales</h1>
-        <section class="map-section">
-            <div class="map-container">
-                <a href="percentiles.html" target="_blank">
-                    <img src="img/1991_2001m.png" alt="Mapa 1991">
-                    <div class="map-description">1991-2001</div>
-                </a>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>1991-2001</h3>
+                    <a href="percentiles.html"><img src="img/1991_2001m.png" alt="1991"></a>
+                    <p></p>
+                </div>
             </div>
-            <div class="map-container">
-                <a href="percentiles.html" target="_blank">
-                    <img src="img/1991_2022m.png" alt="Mapa 2001">
-                    <div class="map-description">1991-2022</div>
-                </a>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>1991-2022</h3>
+                    <a href="percentiles.html"><img src="img/1991_2022m.png" alt="2001"></a>
+                    <p></p>
+                </div>
             </div>
-            <div class="map-container">
-                <a href="percentiles.html" target="_blank">
-                    <img src="img/2001_2010m.png" alt="Mapa 2010">
-                    <div class="map-description">2001-2010</div>
-                </a>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2001-2010</h3>
+                    <a href="percentiles.html"><img src="img/2001_2010m.png" alt="2010"></a>
+                    <p></p>
+                </div>
             </div>
-            <div class="map-container">
-                <a href="percentiles.html" target="_blank">
-                    <img src="img/2010_2022m.png" alt="Mapa 2022">
-                    <div class="map-description">2010-2022</div>
-                </a>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2010-2022</h3>
+                    <a href="percentiles.html"><img src="img/2010_2022m.png" alt="2022"></a>
+                    <p></p>
+                </div>
             </div>
-        </section>
-        <section class="text-section">
-            <div class="text-content">
+        </div>
+        <div class="content-below-timeline">
+            <div class="text-section">
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum fuga quae vero adipisci, deleniti atque animi quia porro at quas necessitatibus eaque illum, numquam ab sequi in optio aperiam rerum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum fuga quae vero adipisci, deleniti atque animi quia porro at quas necessitatibus eaque illum, numquam ab sequi in optio aperiam rerum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum fuga quae vero adipisci, deleniti atque animi quia porro at quas necessitatibus eaque illum, numquam ab sequi in optio aperiam rerum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum fuga quae vero adipisci, deleniti atque animi quia porro at quas necessitatibus eaque illum, numquam ab sequi in optio aperiam rerum?</p>
             </div>
-            <div class="chart-container">
-                <a href="pdf/tabla de densidad.pdf" target="_blank">
-                    <img src="img/tabla de densidad.png" alt="Gráfico de Densidad">
-                </a>
+            <div class="image-section">
+                <div class="flourish-embed flourish-chart" data-src="visualisation/17010257"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
             </div>
-        </section>
+        </div>
     </main>
+
     <footer>
         <div class="footer-container">
             <div class="footer-left">
@@ -242,7 +248,5 @@
     </footer>
     <!-- Enlace a los scripts -->
     <script src="js/scripts_nemu_flotante.js"></script>
-    <script src="js/scripts_poblacion.js"></script>
-
 </body>
 </html>

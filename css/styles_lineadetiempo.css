@@ -1,0 +1,80 @@
+/* Estilos para la línea de tiempo */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 40px 0;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    flex: 1;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #2855ac;
+    top: 50%;
+    left: -50%;
+    z-index: -1;
+}
+
+.timeline-item:first-child::after {
+    left: 50%;
+}
+
+.timeline-content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+}
+
+.timeline-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.timeline-content p {
+    margin-bottom: 0;
+}
+
+.timeline-content a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.content-below-timeline {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.text-section,
+.image-section {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+}

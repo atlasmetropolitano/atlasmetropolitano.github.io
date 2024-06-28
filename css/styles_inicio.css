@@ -80,6 +80,7 @@ main.holder {
 .main-title {
     font-size: 3em;
     margin-bottom: 20px;
+    text-shadow: 3px 3px 3px rgb(0, 0, 0);
 }
 
 .main-buttons {

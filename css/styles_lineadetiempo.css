@@ -1,4 +1,10 @@
 /* Estilos para la línea de tiempo */
+
+.main-title {
+    text-align: center;
+    font-size: 24px;
+}
+
 .timeline {
     display: flex;
     justify-content: space-between;

@@ -142,7 +142,7 @@ nav ul.submenu > li:hover > ul.subsubmenu {
 }*/
 
 main.holder {
-    margin-top: 100px; /* Ajusta según la altura del header */
+    margin-top: 80px; /* Ajusta según la altura del header */
     padding: 20px;
 }
 

@@ -1,0 +1,6 @@
+// Cargar datos GeoJSON
+fetch('data/yourdata.geojson')
+  .then(response => response.json())
+  .then(data => {
+      L.geoJSON(data).addTo(map);
+  });

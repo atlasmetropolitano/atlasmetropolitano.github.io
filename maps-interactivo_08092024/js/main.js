@@ -459,9 +459,9 @@ function limiteintStyle() {
 
 // Cargar automáticamente capas GeoJSON al iniciar el mapa con estilos personalizados
 function loadInitialLayers() {
-    loadInitialGeoJSON('../data/limiteint.geojson', 'Capa 1', limiteintStyle);  // Subir un nivel y acceder a data/
-    loadInitialGeoJSON('../data/mapabase.geojson', 'Capa 2', mapabaseStyle);   // Subir un nivel y acceder a data/
-    //loadInitialGeoJSON('data/redferro.geojson', 'Capa 3');  // Cargar redferro.geojson sin estilo personalizado
+    loadInitialGeoJSON('../data/limiteint.geojson', 'Limite Internacional', limiteintStyle);  // Subir un nivel y acceder a data/
+    loadInitialGeoJSON('../data/mapabase.geojson', 'Mapa Base', mapabaseStyle);   // Subir un nivel y acceder a data/
+    loadInitialGeoJSON('../data/area_de_estudio.geojson', 'Area de Estudio');  // Cargar redferro.geojson sin estilo personalizado
 }
 
 // Llamar a la función para cargar capas iniciales

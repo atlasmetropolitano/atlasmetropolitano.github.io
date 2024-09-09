@@ -455,6 +455,16 @@ function limiteintStyle() {
         fillOpacity: 0,      // Sin relleno
         opacity: 1           // Opacidad de la línea
     };
+
+    // Estilo personalizado para la capa area_de_estudio (sin relleno, línea más fina)
+function mapabaseStyle() {
+    return {
+        color: '#fb2c00',    // Color de la línea (negro)
+        weight: 1,           // Grosor de la línea
+        fillOpacity: 0,      // Sin relleno
+        opacity: 1           // Opacidad de la línea
+    };
+}
 }
 
 // Cargar automáticamente capas GeoJSON al iniciar el mapa con estilos personalizados

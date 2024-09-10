@@ -20,6 +20,7 @@ var geojsonLayer;  // Variable para almacenar la capa GeoJSON cargada
 var shapefileLayer;  // Variable para almacenar la capa Shapefile cargada
 var layerControl = L.control.layers().addTo(map);  // Control de capas de Leaflet
 var layers = {};  // Objeto para almacenar las capas cargadas
+var labelLayers = {};  // Almacena las etiquetas activas para permitir activarlas o desactivarlas
 
 // Función para manejar la creación de popups en elementos GeoJSON
 function onEachFeature(feature, layer) {
@@ -71,6 +72,35 @@ function applyUniqueStyle(attribute, layer) {
             });
         }
     });
+}
+
+// Función para aplicar etiquetas basadas en el atributo seleccionado
+function applyLabels(attribute, layer) {
+    if (!labelLayers[attribute]) {
+        labelLayers[attribute] = L.featureGroup();
+        layerControl.addOverlay(labelLayers[attribute], `Etiquetas: ${attribute}`);
+    }
+
+    layer.eachLayer(function(layer) {
+        if (layer.feature.properties[attribute]) {
+            var label = layer.feature.properties[attribute];
+            var tooltip = L.tooltip({
+                permanent: true,
+                direction: 'auto',
+                className: 'label-tooltip'
+            }).setContent(label).setLatLng(layer.getBounds().getCenter());
+            labelLayers[attribute].addLayer(tooltip);
+        }
+    });
+}
+
+// Función para activar/desactivar etiquetas
+function toggleLabels(attribute) {
+    if (document.getElementById('toggleLabels').checked) {
+        labelLayers[attribute].addTo(map);
+    } else {
+        map.removeLayer(labelLayers[attribute]);
+    }
 }
 
 // Función para aplicar estilo graduado
@@ -186,15 +216,27 @@ function updateLayerSelect(layerName) {
     layerSelect.appendChild(option);
 }
 
-// Función para poblar el select de atributos
+// Función para poblar el select de atributos y etiquetas
 function populateAttributeSelect(properties) {
     var attributeSelect = document.getElementById('attributeSelect');
+    var labelSelect = document.getElementById('labelSelect');
+    
     attributeSelect.innerHTML = '';
+    labelSelect.innerHTML = '<option value="">Sin Etiqueta</option>'; // Agregar opción "Sin Etiqueta" al selector de etiquetas
+
     for (var key in properties) {
         var option = document.createElement('option');
         option.value = key;
         option.text = key;
+
+        // Llenar el selector de atributos
         attributeSelect.appendChild(option);
+
+        // Llenar el selector de etiquetas
+        var labelOption = document.createElement('option');
+        labelOption.value = key;
+        labelOption.text = key;
+        labelSelect.appendChild(labelOption);
     }
 }
 
@@ -223,7 +265,7 @@ document.getElementById('layerSelect').addEventListener('change', function() {
     }
 });
 
-// Evento de cambio en los selectores para aplicar estilo a la capa seleccionada
+// Evento de cambio en los selectores para aplicar estilo y etiquetas a la capa seleccionada
 document.getElementById('attributeSelect').addEventListener('change', function() {
     var attribute = this.value;
     var selectedLayerName = document.getElementById('layerSelect').value;
@@ -237,8 +279,16 @@ document.getElementById('attributeSelect').addEventListener('change', function()
     } else if (styleType === 'naturalBreaks') {
         applyNaturalBreaksStyle(attribute, selectedLayer);
     }
+
+    // Aplicar etiquetas
+    var labelAttribute = document.getElementById('labelSelect').value;
+    if (labelAttribute) {
+        applyLabels(labelAttribute, selectedLayer);
+        toggleLabels(labelAttribute); // Actualizar visibilidad de las etiquetas
+    }
 });
 
+// Evento de cambio en el selector de estilo
 document.getElementById('styleSelect').addEventListener('change', function() {
     var attribute = document.getElementById('attributeSelect').value;
     var selectedLayerName = document.getElementById('layerSelect').value;
@@ -251,6 +301,13 @@ document.getElementById('styleSelect').addEventListener('change', function() {
         applyGraduatedStyle(attribute, selectedLayer);
     } else if (styleType === 'naturalBreaks') {
         applyNaturalBreaksStyle(attribute, selectedLayer);
+    }
+
+    // Aplicar etiquetas
+    var labelAttribute = document.getElementById('labelSelect').value;
+    if (labelAttribute) {
+        applyLabels(labelAttribute, selectedLayer);
+        toggleLabels(labelAttribute); // Actualizar visibilidad de las etiquetas
     }
 });
 
@@ -401,17 +458,6 @@ document.getElementById('transparencyTool').addEventListener('click', function()
     }
 });
 
-// Función para manejar la creación de popups en elementos GeoJSON
-function onEachFeature(feature, layer) {
-    if (feature.properties) {
-        var popupContent = "<h3>Información del Elemento</h3>";
-        for (var key in feature.properties) {
-            popupContent += "<b>" + key + ":</b> " + feature.properties[key] + "<br>";
-        }
-        layer.bindPopup(popupContent);
-    }
-}
-
 // Función para cargar capas iniciales al abrir el mapa con estilos personalizados
 function loadInitialGeoJSON(url, layerName, styleFunction) {
     fetch(url)
@@ -455,8 +501,9 @@ function limiteintStyle() {
         fillOpacity: 0,      // Sin relleno
         opacity: 1           // Opacidad de la línea
     };
+}
 
-    // Estilo personalizado para la capa area_de_estudio (sin relleno, línea más fina)
+// Estilo personalizado para la capa area_de_estudio (sin relleno, línea más fina)
 function mapabaseStyle() {
     return {
         color: '#fb2c00',    // Color de la línea (negro)
@@ -465,13 +512,12 @@ function mapabaseStyle() {
         opacity: 1           // Opacidad de la línea
     };
 }
-}
 
 // Cargar automáticamente capas GeoJSON al iniciar el mapa con estilos personalizados
 function loadInitialLayers() {
     loadInitialGeoJSON('../data/limiteint.geojson', 'Limite Internacional', limiteintStyle);  // Subir un nivel y acceder a data/
     loadInitialGeoJSON('../data/mapabase.geojson', 'Mapa Base', mapabaseStyle);   // Subir un nivel y acceder a data/
-    loadInitialGeoJSON('../data/area_de_estudio.geojson', 'Area de Estudio');  // Cargar redferro.geojson sin estilo personalizado
+    loadInitialGeoJSON('../data/area_de_estudio.geojson', 'Area de Estudio');  // Cargar sin estilo personalizado
 }
 
 // Llamar a la función para cargar capas iniciales

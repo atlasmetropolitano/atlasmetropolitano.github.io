@@ -17,7 +17,9 @@
                 <img src="img/Logo CIM Fondo transparente .png" alt="Logo Atlas Metropolitano">
                 <span>Atlas Metropolitano</span>
             </div>
+        </div>
     </header>
+
     <!-- Contenedor del mapa -->
     <div id="map"></div>
 
@@ -42,6 +44,20 @@
             <div class="control-group">
                 <label for="attributeSelect">Selecciona Atributo:</label>
                 <select id="attributeSelect"></select>
+            </div>
+
+            <!-- Selector de etiqueta -->
+            <div class="control-group">
+                <label for="labelSelect">Selecciona Atributo para Etiqueta:</label>
+                <select id="labelSelect">
+                    <option value="">Sin Etiqueta</option>
+                </select>
+            </div>
+            
+            <!-- Checkbox para mostrar/ocultar etiquetas -->
+            <div class="control-group">
+                <input type="checkbox" id="toggleLabels" />
+                <label for="toggleLabels">Mostrar etiquetas</label>
             </div>
             
             <!-- Selector de estilo -->
@@ -108,7 +124,6 @@
                     <a href="#"><img src="img/iconos/instagram.png" alt="Instagram"></a>
                     <a href="#"><img src="img/iconos/linkedin.png" alt="LinkedIn"></a>
                     <a href="#"><img src="img/iconos/jugar.png" alt="YouTube"></a>
-                 
                 </div>
                 <div class="footer-logo">
                     <img src="img/Logo CIM Fondo transparente .png" alt="INDEC">
@@ -129,3 +144,5 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
+

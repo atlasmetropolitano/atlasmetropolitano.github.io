@@ -1,0 +1,152 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilos para el contenedor del mapa */
+#map {
+    height: 80vh;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el input de archivo */
+#fileInput, #attributeSelect, #styleSelect {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    max-width: 300px;
+    width: 80%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#fileInput:hover, #attributeSelect:hover, #styleSelect:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos del menú hamburguesa */
+#hamburgerMenu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#hamburgerBtn {
+    font-size: 24px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hamburgerBtn:hover {
+    background-color: #555;
+}
+
+#layerMenu {
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 200px;
+}
+
+#layerMenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#layerMenu ul li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+#layerMenu ul li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Estilos para los popups en el mapa */
+.leaflet-popup-content-wrapper {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-popup-content {
+    margin: 8px 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+.leaflet-popup-tip-container {
+    display: none;
+}
+
+/* Estilos para los controles de Leaflet (ej. zoom, mini-mapa) */
+.leaflet-control-zoom,
+.leaflet-control-layers {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-control-zoom a {
+    color: #333;
+    font-size: 18px;
+}
+
+.leaflet-control-layers-toggle {
+    width: 36px;
+    height: 36px;
+    background-size: 26px;
+}
+
+.leaflet-control-layers-expanded {
+    max-height: 300px;
+    overflow-y: auto; /* Scroll para muchas capas */
+}
+
+.leaflet-control-layers-list {
+    padding: 10px;
+    list-style-type: none;
+    margin: 0;
+}
+
+.leaflet-control-layers-overlays label {
+    display: block;
+    font-size: 14px;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.leaflet-control-layers-overlays input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-minimap/dist/Control.MiniMap.min.css" />
+</head>
+<body>
+    <div id="controls">
+        <label for="attributeSelect">Selecciona Atributo:</label>
+        <select id="attributeSelect"></select>
+
+        <label for="styleSelect">Selecciona Estilo:</label>
+        <select id="styleSelect">
+            <option value="unique">Valor Único</option>
+            <option value="graduated">Graduado</option>
+            <option value="naturalBreaks">Natural Breaks</option>
+        </select>
+    </div>
+
+    <!-- Menú tipo hamburguesa para capas -->
+    <div id="hamburgerMenu">
+        <button id="hamburgerBtn">☰ Capas</button>
+        <div id="layerMenu" class="hidden">
+            <ul id="layerList"></ul>
+        </div>
+    </div>
+
+    <div id="map"></div>
+    <input type="file" id="fileInput" accept=".json,.geojson,.zip,.shp" />
+
+    <!-- Agregando dependencias necesarias -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-minimap/dist/Control.MiniMap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-statistics/7.7.0/simple-statistics.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/shpjs@latest/dist/shp.min.js"></script>
+    
+    <!-- Archivo JavaScript principal -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

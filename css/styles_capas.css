@@ -1,0 +1,51 @@
+.main-title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0px 0;
+}
+
+.button-group {
+    margin: 20px 0;
+    text-align: center;
+}
+.button-group button {
+    background-color: #3b5998;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.button-group button:hover {
+    background-color: #4a69bd;
+}
+.section-content {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+.section-content.active {
+    display: block;
+}
+.download-buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.download-buttons button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.download-buttons button:hover {
+    background-color: #2980b9;
+}

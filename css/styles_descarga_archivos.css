@@ -1,0 +1,103 @@
+/* Botón de volver */
+.back-button {
+    display: inline-block;
+    background-color: #4a6572;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+.back-button:hover {
+    background-color: #34495e;
+}
+
+/* Estilo del título principal */
+.main-title {
+    text-align: left;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+/* Estilo de la tabla */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.data-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.data-table td a {
+    text-decoration: none;
+}
+
+/* Botones de formato */
+.btn-format {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 8px 12px;
+    margin: 2px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-format:hover {
+    background-color: #0097a7;
+}
+
+/* Botones de simbología */
+.btn-symbology {
+    background-color: #8bc34a;
+    color: #fff;
+    padding: 8px 12px;
+    margin: 2px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-symbology:hover {
+    background-color: #7cb342;
+}
+
+/* Botones de descarga */
+.btn-download {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 12px;
+    margin: 2px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background-color: #0056b3;
+}

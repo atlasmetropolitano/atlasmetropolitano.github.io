@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/menu_fotante_autores.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/styles_capas.css">
+    <link rel="stylesheet" href="css/styles_Pop-up.css">
 
 
 </head>
@@ -484,9 +485,37 @@
             </div>
         </div>
     </footer>
+
+    <!-- Pop-up de confirmación de descarga -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-content">
+        <h2>Términos y Condiciones</h2>
+        <p>
+            Antes de proceder con la descarga, lea los siguientes términos y condiciones detenidamente:
+        </p>
+        <p>
+            La información proporcionada en este sitio está sujeta a derechos de propiedad intelectual. 
+            Está prohibida la reproducción, distribución o venta de cualquier contenido descargado sin el consentimiento 
+            previo por escrito del Centro de Información Metropolitana. Al aceptar estos términos, usted se compromete 
+            a respetar y proteger los derechos de propiedad intelectual.
+        </p>
+        <div id="popup-scroll" class="popup-scroll">
+            <p>
+                [Términos completos aquí...]
+            </p>
+        </div>
+        <div class="popup-buttons">
+            <button id="accept-btn">Acepto</button>
+            <button id="reject-btn">No Acepto</button>
+        </div>
+    </div>
+</div>
+
     <!-- Enlace a los scripts -->
     <script src="js/scripts_nemu_flotante.js"></script>
     <script src="js/scripts_capas.js"></script>
+    <script src="js/scrips_pop-up.js"></script>
+    
 
 </body>
 </html>

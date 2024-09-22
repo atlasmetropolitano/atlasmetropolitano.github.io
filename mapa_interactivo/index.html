@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/styles_index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-minimap/dist/Control.MiniMap.min.css" />
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="img/Logo CIM Fondo transparente .png" alt="Logo Atlas Metropolitano">
+                <span>Atlas Metropolitano</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra lateral -->
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <input type="text" id="filterInput" placeholder="Filtrar">
+        </div>
+        <ul class="layers-list">
+            <li>
+                <span>CIM</span>
+                <ul> 
+                    <li>
+                        <label><input type="checkbox" class="layer-toggle" data-layer="limite_internacional"> Límite Internacional</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="layer-toggle" data-layer="municipios"> Municipios</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="layer-toggle" data-layer="area_de_estudio"> Área de Estudio</label>
+                    </li>
+                    
+                
+                   <!-- <li>
+                        <label><input type="checkbox" class="layer-toggle" data-layer-name="area_de_estudio"> Área de estudio</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="layer-toggle" data-layer-name="municipios"> Municipios</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" class="layer-toggle" data-layer-name="limite_internacional"> Límite internacional</label>
+                    </li> -->
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Contenedor del mapa -->
+    <div id="map"></div>
+
+    <!-- Barra de herramientas flotante -->
+    <div id="toolbar">
+        <button id="panTool" title="Desplazar"><img src="img/desplazar.png" alt="Desplazar"></button>
+        <button id="infoTool" title="Información"><img src="img/informacion.png" alt="Información"></button>
+        <button id="measureTool" title="Medición"><img src="img/medicion.png" alt="Medición"></button>
+        <button id="transparencyTool" title="Transparencia"><img src="img/transparente.png" alt="Transparencia"></button>
+    </div>
+
+    <!-- Controles del mapa debajo -->
+    <div id="controls" class="controls-container">
+        <div class="controls-row">
+            <!-- Selector de capa -->
+            <div class="control-group">
+                <label for="layerSelect">Selecciona Capa:</label>
+                <select id="layerSelect"></select>
+            </div>
+
+            <!-- Selector de atributo -->
+            <div class="control-group">
+                <label for="attributeSelect">Selecciona Atributo:</label>
+                <select id="attributeSelect"></select>
+            </div>
+
+            <!-- Selector de etiqueta -->
+            <div class="control-group">
+                <label for="labelSelect">Selecciona Atributo para Etiqueta:</label>
+                <select id="labelSelect">
+                    <option value="">Sin Etiqueta</option>
+                </select>
+            </div>
+
+            <!-- Checkbox para mostrar/ocultar etiquetas -->
+            <div class="control-group">
+                <input type="checkbox" id="toggleLabels" />
+                <label for="toggleLabels">Mostrar etiquetas</label>
+            </div>
+
+            <!-- Selector de estilo -->
+            <div class="control-group">
+                <label for="styleSelect">Selecciona Estilo:</label>
+                <select id="styleSelect">
+                    <option value="unique">Valor Único</option>
+                    <option value="graduated">Graduado</option>
+                    <option value="naturalBreaks">Natural Breaks</option>
+                </select>
+            </div>
+
+            <!-- Selector de paleta de colores -->
+            <div class="control-group">
+                <label for="colorPaletteSelect">Selecciona Paleta de Colores:</label>
+                <select id="colorPaletteSelect">
+                    <option value="default">Paleta por Defecto</option>
+                    <option value="warm">Cálido</option>
+                    <option value="cool">Frío</option>
+                    <option value="custom">Personalizado</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="controls-row">
+            <!-- Sección de entrada para WMS -->
+            <div class="control-group">
+                <label for="wmsUrl">URL de WMS:</label>
+                <input type="text" id="wmsUrl" placeholder="Introduce la URL del servicio WMS" />
+                <button id="loadWmsLayersBtn">Cargar capas WMS</button>
+                <label for="wmsLayerList">Selecciona una capa WMS:</label>
+                <select id="wmsLayerList"></select>
+                <button id="addWmsLayerBtn">Agregar capa WMS</button>
+            </div>
+
+            <!-- Sección de entrada para WMTS -->
+            <div class="control-group">
+                <label for="wmtsUrl">URL de WMTS:</label>
+                <input type="text" id="wmtsUrl" placeholder="Introduce la URL del servicio WMTS" />
+                <label for="wmtsLayerName">Nombre de la capa WMTS:</label>
+                <input type="text" id="wmtsLayerName" placeholder="Nombre de la capa WMTS" />
+                <button id="addWmtsLayerBtn">Agregar capa WMTS</button>
+            </div>
+        </div>
+
+        <div class="controls-row">
+            <!-- Entrada de archivo para cargar GeoJSON, Shapefiles, etc. -->
+            <input type="file" id="fileInput" accept=".json,.geojson,.zip,.shp" />
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>Centro de Información Metropolitana</p>
+                <p>Email: cim@fadu.uba.ar - Tel: (54-11) 5285-9308</p>
+                <p>Ciudad Universitaria –Pabellón III 4° Piso-Intendente Güiraldes 2160 CABA – C1428EGA</p>
+                <p>Ciudad Autónoma de Buenos Aires, Argentina.</p>
+                <p>&copy; 2024</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <a href="#"><img src="img/iconos/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="img/iconos/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="img/iconos/linkedin.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="img/iconos/jugar.png" alt="YouTube"></a>
+                </div>
+                <div class="footer-logo">
+                    <img src="img/Logo CIM Fondo transparente .png" alt="INDEC">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Agregando dependencias necesarias -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-minimap/dist/Control.MiniMap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-statistics/7.7.0/simple-statistics.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/shpjs@latest/dist/shp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js"></script>
+
+    <!-- Archivo JavaScript principal -->
+    <script src="js/main.js"></script>
+</body>
+</html>

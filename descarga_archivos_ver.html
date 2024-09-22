@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/styles_index.css">
     <link rel="stylesheet" href="css/menu_fotante_autores.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/styles_descarga_archivos.css">
+
+    <!-- https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG -->
 
 </head>
 <body>
@@ -203,10 +206,55 @@
     </aside>
 
     <main class="holder">
-        <!-- Título principal -->
-        <h1 class="main-title">xxxxxxxxxxxxxxxxxxxxxxxx</h1>
-       
+        <!-- <button class="back-button" onclick="window.history.back();">⬅ VOLVER</button> -->
+        <h1 class="main-title">Urbanístico</Area></h1>
+        <p>Datos disponibles</p>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>TEMA</th>
+                        <th>INDICADOR</th>
+                        <th>FORMATO</th>
+                        <!-- <th>Dic.Datos</th>
+                        <th>Metadatos</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Municipios</td>
+                        <td>
+                            <a href="archivos_descarga/zip/213_mapa_base_2023rc.zip" class="btn-format">SHP</a>
+                            <a href="ruta_al_archivo.kml" class="btn-format">KML</a>
+                            <a href="archivos_descarga/geojson/Area_de_estudio.geojson" class="btn-format">JSON</a>
+                        </td>
+                        <!-- <td>
+                            <a href="ruta_al_archivo.qml" class="btn-symbology">QML</a>
+                            <a href="ruta_al_archivo.lyr" class="btn-symbology">LYR</a>
+                        </td> -->
+                        <!-- <td><a href="ruta_al_diccionario_datos" class="btn-download">⬇</a></td>
+                        <td><a href="ruta_al_metadato" class="btn-download">⬇</a></td> -->
+                    </tr>
+                    <tr>
+                        <td>Zona de Estudio</td>
+                        <td>
+                            <a href="archivos_descarga/zip/213_mapa_base_2023rc.zip" class="btn-format">SHP</a>
+                            <a href="ruta_al_archivo.kml" class="btn-format">KML</a>
+                            <a href="archivos_descarga/geojson/Area_de_estudio.geojson" class="btn-format">JSON</a>
+                        </td>
+                        <!-- <td>
+                            <a href="ruta_al_archivo.qml" class="btn-symbology">QML</a>
+                            <a href="ruta_al_archivo.lyr" class="btn-symbology">LYR</a>
+                        </td> -->
+                        <!-- <td><a href="ruta_al_diccionario_datos" class="btn-download">⬇</a></td>
+                        <td><a href="ruta_al_metadato" class="btn-download">⬇</a></td> -->
+                    </tr>
+                    <!-- Agregar más filas de la misma manera para cada año o capa -->
+                </tbody>
+            </table>
+        </div>
     </main>
+    
     <footer>
         <div class="footer-container">
             <div class="footer-left">

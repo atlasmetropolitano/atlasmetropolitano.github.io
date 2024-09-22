@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/styles_index.css">
     <link rel="stylesheet" href="css/menu_fotante_autores.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/styles_capas.css">
+
 
 </head>
 <body>
@@ -203,9 +205,261 @@
     </aside>
 
     <main class="holder">
-        <!-- Título principal -->
-        <h1 class="main-title">xxxxxxxxxxxxxxxxxxxxxxxx</h1>
-       
+
+ <!-- Título principal -->
+        <h1 class="main-title">Capas de Información Geoespacial para Descarga</h1>
+        <section class="text-section">
+            <div class="text-content">
+                <p>El Centro de Información Metropolitana pone a disposición de la comunidad una serie de capas de información
+                   en formato vectorial. Estas capas son consistentes con el Catálogo de Objetos Geográficos del Organismo y forman 
+                   parte de la Base de Datos Geoespacial Institucional.
+                </p>
+
+                <h3>Caraterísticas de la Información</h3>
+                    <p>Formato de Coordenadas: Todas las capas están expresadas en coordenadas geodésicas, utilizando 
+                       el Sistema de Referencia WGS 84 y el Marco de Referencia POSGAR 07.
+                    </p>
+                    <p>Coordenadas: EPSG 4326.</p>
+                    <p>Estándares de Calidad: La información se ajusta a normas y estándares internacionales, tales como:
+                       ISO/TC 211 19110: Especificaciones de catálogo de objetos geográficos.
+                       ISO 19115: Metadatos geográficos.
+                    </p>
+                    <h3>Actualización de Datos</h3>
+                    <p>Centro de Información Metropolitana trabaja de forma continua en la actualización y adecuación de su información geoespacial. 
+                       Por este motivo, las capas aquí presentadas serán actualizadas periódicamente, garantizando su 
+                       conformidad con las normativas internacionales vigentes.
+                    </p>
+            </div>
+            
+        </section>
+
+        <!-- Botones de navegación -->
+        <div class="button-group">
+            <button data-section="urbanistico">Urbanistico</button>
+            <button data-section="demografico">Demográfico / Socio-Economico</button>
+            <button data-section="ambiental">Ambiental</button>
+            <button data-section="calidad">Calidad de Vida</button>
+            <button data-section="politico">Político Administrativo</button>
+    <!--        <button data-section="cartografia">Cartografía</button>
+            <button data-section="transporte">Transporte</button>
+            <button data-section="defensa">Defensa y seguridad</button>
+            <button data-section="vegetacion">Vegetación natural y de cultivo</button>
+            <button data-section="riesgo">Riesgo de desastres</button> -->
+        </div>
+
+        <!-- Secciones de contenido dinámico -->
+        <section id="urbanistico" class="section-content active">
+            <h2>Urbanístico</h2>
+            <h3>Ocupación del Suelo</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Geometría</th>
+                        <th>Nombre de la capa base</th>
+                        <th>Descargas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Polígono</td>
+                        <td>Uso Residencial</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Polígono</td>
+                        <td>Uso Comercial e Industrial</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                        <td>Polígono</td>
+                        <td>Uso Espacios Verdes</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Equipamiento</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Geometría</th>
+                        <th>Nombre de la capa base</th>
+                        <th>Descargas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Punto</td>
+                        <td>Educación</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Punto</td>
+                        <td>Salud</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Infraestructura</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Geometría</th>
+                        <th>Nombre de la capa base</th>
+                        <th>Descargas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Punto</td>
+                        <td>Transporte Vial</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Punto</td>
+                        <td>Transporte Aéreo</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Punto</td>
+                        <td>Transporte Fluvial y Marítimo</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Punto</td>
+                        <td>Energía</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Punto</td>
+                        <td>saneamiento</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Punto</td>
+                        <td>Comunicaciones</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Sección Industria y Servicios (Vacía para ser llenada con contenido similar) -->
+        <section id="demografico" class="section-content">
+            <h2>Demográfico / Socio-Económico</h2>
+            <h3>Demográfico</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Geometría</th>
+                        <th>Nombre de la capa base</th>
+                        <th>Descargas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Polígono</td>
+                        <td>Distribución Espacial</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Polígono</td>
+                        <td>Composición de la Población</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                        <td>Polígono</td>
+                        <td>Crecimiento Vegetativo</td>
+                        <td class="download-buttons">
+                            <button>Descargar SHP</button>
+                            <button>Descargar KML</button>
+                            <button>Descargar GeoJSON</button>
+                            <button>Descargar CSV</button>
+                            <button>Descargar Metadatos</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Más secciones correspondientes a los botones... -->
     </main>
     <footer>
         <div class="footer-container">
@@ -232,5 +486,7 @@
     </footer>
     <!-- Enlace a los scripts -->
     <script src="js/scripts_nemu_flotante.js"></script>
+    <script src="js/scripts_capas.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,344 @@
+/* Estilo del mapa */
+#map {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Botón de activación */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #34495e;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.toggle-btn:hover {
+    background: #2c3e50;
+}
+
+/* Panel flotante */
+.panel {
+    position: fixed;
+    top: 0;
+    right: -450px; /* Más oculto */
+    width: 420px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease-in-out;
+    padding: 20px;
+    overflow-y: auto;
+    border-left: 4px solid #ddd;
+    border-radius: 8px 0 0 8px;
+}
+
+.panel.open {
+    right: 0;
+}
+
+/* Barra superior con iconos */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #ecf0f1;
+    border-bottom: 3px solid #ccc;
+    border-radius: 8px 0 0 0;
+}
+
+.panel-header .icons {
+    display: flex;
+    gap: 12px;
+}
+
+.panel-header .icons button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #34495e;
+    transition: 0.3s;
+}
+
+.panel-header .icons button:hover {
+    color: #2c3e50;
+}
+
+.panel-header .close-btn {
+    font-size: 22px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #e74c3c;
+    transition: 0.3s;
+}
+
+.panel-header .close-btn:hover {
+    color: #c0392b;
+}
+
+/* Cuadros de selección de años */
+.year-selector {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.year {
+    background: #ddd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.year:hover {
+    background: #bbb;
+}
+
+.year.selected {
+    background: #34495e;
+    color: white;
+}
+
+/* Contenido */
+.panel h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.panel p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.panel .stats {
+    padding: 15px;
+    background: #ecf0f1;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Lista de densidad */
+.density-list {
+    list-style: none;
+    padding: 0;
+}
+
+.density-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.density-list li:hover {
+    background: #f7f7f7;
+}
+
+.density-list .icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+/* Colores de los indicadores */
+.blue { background: #3498db; }
+.light-blue { background: #85c1e9; }
+.green { background: #2ecc71; }
+.yellow { background: #f1c40f; }
+.orange { background: #e67e22; }
+.red { background: #e74c3c; }
+.dark-red { background: #c0392b; }
+
+/* Contenedor de botones flotantes */
+.fab-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    z-index: 1002;
+}
+
+.fab {
+    width: 60px;
+    height: 60px;
+    background-color: #dd0000;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab:active {
+    transform: scale(0.95);
+}
+
+.fab-options {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.fab-options.show {
+    display: flex;
+}
+
+.fab-option {
+    width: 50px;
+    height: 50px;
+    background-color: #750cf5;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab-option:nth-child(1) {
+ background-color: #022a4a; 
+}
+
+.fab-option:nth-child(2) {
+    background-color: #ea3f0c; 
+}   
+
+
+.fab-option:nth-child(3) {
+    background-color: #2b6c19; 
+}
+
+.fab-option:nth-child(4) {
+    background-color: #ff0202;
+}
+
+.fab-option:nth-child(5) {
+    background-color: #b81747;  
+}
+
+
+/* Estilo de los menús emergentes */
+.menu-box {
+    position: absolute;
+    background-color: #00A6E3; /* Color más brillante */
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    width: 270px;
+    display: none;
+    z-index: 1003;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.menu-box.show {
+    display: block;
+}
+
+/* Encabezados de los menús */
+.menu-header {
+    background-color: #0080B3; /* Azul oscuro */
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-bottom: 1px solid white;
+}
+
+/* Opciones del menú */
+.menu-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-box ul li {
+    padding: 12px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.menu-box ul li:hover {
+    background-color: #0078A0;
+}
+
+.menu-box ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+/* Botones de selección de año */
+.year-selector {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 15px 0;
+}
+
+.year {
+background: #ddd;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+font-weight: bold;
+transition: background 0.3s, transform 0.2s;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.year:hover {
+background: #bbb;
+transform: scale(1.1);
+}
+
+.year.selected {
+background: #0078A0;
+color: white;
+box-shadow: 2px 2px 8px rgba(0, 120, 160, 0.5);
+transform: scale(1.1);
+}
+
+
+
+
+
+
+

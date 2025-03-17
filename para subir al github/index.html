@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Metropolitano</title>
+    
+    <!-- Estilos de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/stylosdetodo.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script defer src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <script>
+        console.log("📌 Intentando inicializar `map` en index.html...");
+    
+        function initializeMap() {
+            if (window.map && window.map instanceof L.Map) {
+                console.warn("⚠️ `map` ya estaba inicializado. No se reinicializa.");
+                window.mapReady = true;
+                document.dispatchEvent(new Event("mapReady"));
+                return;
+            }
+    
+            console.log("🗺️ Inicializando `map`...");
+            window.map = L.map('map').setView([-34.60, -58.50], 12);
+    
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(window.map);
+    
+            console.log("✅ `map` inicializado correctamente.");
+    
+            window.mapReady = true;
+            document.dispatchEvent(new Event("mapReady"));
+        }
+    
+        document.addEventListener("DOMContentLoaded", initializeMap);
+    </script>
+    
+    
+    
+  
+    
+</head>
+<body>
+    <div id="map" style="height: 100vh;"></div>
+
+
+    <!-- Botón para mostrar/ocultar el menú de herramientas -->
+<button id="toggle-toolbox" class="toolbox-toggle"><i class="fas fa-tools"></i></button>
+
+<!-- 🛠️ Cuadro de herramientas (Menú reducido) -->
+<div class="toolbox hidden">
+    <button class="tool-btn" id="btn-zoom-in" title="Acercar"><i class="fas fa-search-plus"></i></button>
+    <button class="tool-btn" id="btn-zoom-out" title="Alejar"><i class="fas fa-search-minus"></i></button>
+    <button class="tool-btn" id="btn-reset" title="Restablecer Mapa"><i class="fas fa-home"></i></button>
+    <button class="tool-btn" id="btn-toggle-layer" title="Alternar Capa"><i class="fas fa-layer-group"></i></button>
+    <button class="tool-btn" id="btn-upload-geojson" title="Cargar GeoJSON"><i class="fas fa-file-upload"></i></button>
+    <button class="tool-btn" id="btn-load-wms" title="Cargar Servicio WMS"><i class="fas fa-globe"></i></button>
+    <button class="tool-btn" id="btn-print-map" title="Imprimir Mapa"><i class="fas fa-print"></i></button>
+    <button class="tool-btn" id="btn-screenshot-map" title="Capturar Pantalla"><i class="fas fa-camera"></i></button>
+    <button class="tool-btn" id="btn-download-geojson" title="Descargar GeoJSON"><i class="fas fa-download"></i></button>
+
+    <input type="file" id="geojson-input" accept=".geojson" style="display: none;">
+</div>
+
+
+   <!-- 🛠️ Cuadro de herramientas en la parte superior izquierda
+<div class="toolbox">
+    <button class="tool-btn" id="btn-zoom-in" title="Acercar"><i class="fas fa-search-plus"></i></button>
+    <button class="tool-btn" id="btn-zoom-out" title="Alejar"><i class="fas fa-search-minus"></i></button>
+    <button class="tool-btn" id="btn-reset" title="Restablecer Mapa"><i class="fas fa-home"></i></button>
+    <button class="tool-btn" id="btn-toggle-layer" title="Alternar Capa"><i class="fas fa-layer-group"></i></button>
+    <button class="tool-btn" id="btn-upload-geojson" title="Cargar GeoJSON"><i class="fas fa-file-upload"></i></button>
+    <button class="tool-btn" id="btn-load-wms" title="Cargar Servicio WMS"><i class="fas fa-globe"></i></button>
+    <button class="tool-btn" id="btn-print-map" title="Imprimir Mapa"><i class="fas fa-print"></i></button>
+    <button class="tool-btn" id="btn-screenshot-map" title="Capturar Pantalla"><i class="fas fa-camera"></i></button>
+    <input type="file" id="geojson-input" accept=".geojson" style="display: none;">
+</div> -->
+
+<!-- 📌 Cuadro flotante para datos del WMS -->
+<div id="wms-info-box" class="hidden">
+    <h3>Selecciona una capa del Servicio WMS</h3>
+    <div id="wms-data"></div>
+    <button id="close-wms">Cerrar</button>
+</div>
+
+
+     <!-- 🚀 Cargar menudeladerecha.js SOLO cuando `map` esté listo -->
+     <script>
+        document.addEventListener("mapReady", () => {
+            if (!window.menudeladerechaCargado) {
+                console.log("📌 Cargando menudeladerecha.js...");
+                const script1 = document.createElement("script");
+                script1.src = "js/menudeladerecha.js";
+                script1.onload = () => console.log("✅ menudeladerecha.js cargado.");
+                document.body.appendChild(script1);
+                window.menudeladerechaCargado = true;
+            }
+
+            if (!window.menuizquierdoCargado) {
+                console.log("📌 Cargando menuizquierdo.js...");
+                const script2 = document.createElement("script");
+                script2.src = "js/menuizquierdo.js";
+                script2.onload = () => console.log("✅ menuizquierdo.js cargado.");
+                document.body.appendChild(script2);
+                window.menuizquierdoCargado = true;
+            }
+        });
+    </script>
+
+    <!-- Botones flotantes -->
+    <div class="fab-container">
+        <button class="fab" id="fab-main" aria-label="Abrir menú" aria-expanded="false">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div class="fab-options" id="fab-options">
+            <button class="fab-option" data-menu="menu1" aria-label="CARACTERÍSTICAS URBANÍSTICAS">
+                <i class="fas fa-solid fa-city"></i>
+            </button>
+            <button class="fab-option" data-menu="menu2" aria-label="CARACTERÍSTICAS DEMOGRÁFICAS, SOCIALES Y ECONÓMICAS">
+                <i class="fas fa-solid fa-square-poll-vertical"></i>
+            </button>
+            <button class="fab-option" data-menu="menu3" aria-label="CARACTERÍSTICAS AMBIENTALES">
+                <i class="fas ffa-solid fa-seedling"></i>
+            </button>
+            <button class="fab-option" data-menu="menu4" aria-label="CALIDAD DE VIDA">
+                <i class="fas fa-solid fa-hand-holding-heart"></i>
+            </button>
+            <button class="fab-option" data-menu="menu5" aria-label="POLÍTICO ADMINISTRATIVO">
+                <i class="fas fa-solid fa-landmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menús flotantes -->
+    <div class="menu-box" id="menu1">
+        <div class="menu-header">Caracteristicas Urbanistas</div>
+        <ul>
+            <li><a href="#">Ocupacion del SUelo</a></li>
+            <li><a href="#">Equipamiento</a></li>
+            <li><a href="#">Infraestructura</a></li>
+        </ul>
+        
+    </div>
+
+    <div class="menu-box" id="menu2">
+        <div class="menu-header">CARACTERÍSTICAS DEMOGRÁFICAS, SOCIALES Y ECONÓMICAS</div>
+        <ul>
+            <li><a href="#" data-geojson="Area_de_estudio.geojson">Demográficas</a></li>
+            <li><a href="#">Socioeconómicas</a></li>
+        </ul>
+    </div>
+
+    <div class="menu-box" id="menu3">
+        <div class="menu-header">CARACTERÍSTICAS AMBIENTALES</div>
+        <ul>
+            <li class="has-submenu">
+                <a href="#">Condiciones Ambientales <i class="fas fa-caret-right"></i></a>
+                <ul class="submenu-right">
+                    <li><a href="#" data-geojson="precipitaciones.geojson">Precipitaciones</a></li>
+                    <li><a href="#">Ambiental</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Otro Ambiental</a></li>
+        </ul>
+    </div>
+    
+    
+    
+    
+    
+    
+
+
+    <div class="menu-box" id="menu4">
+        <div class="menu-header">CALIDAD DE VIDA</div>
+        <ul>
+            <li><a href="#">Vivienda</a></li>
+            <li><a href="#">Servicios básicos</a></li>
+            <li><a href="#">Nivel socioeconómico</a></li>
+            <li><a href="#" data-geojson="nbi2022.geojson" data-sld="nbi.sld">Necesidades básicas insatisfechas</a></li>
+            <li><a href="#">Educación</a></li>
+        </ul>
+        
+    </div>
+
+    <div class="menu-box" id="menu5">
+        <div class="menu-header">POLÍTICO ADMINISTRATIVO</div>
+        <ul>
+            <li><a href="#">Códigos</a></li>
+            <li><a href="#">Reglamentos</a></li>
+            
+        </ul>
+        
+    </div>
+
+      <!-- Botón de activación -->
+      <button class="toggle-btn" onclick="togglePanel()">☰ Panel</button>
+
+      <!-- Panel flotante -->
+      <div class="panel" id="floatingPanel">
+          <!-- Encabezado con botones -->
+          <div class="panel-header">
+              <div class="icons">
+                  <button>📊</button>
+                  <button>⚙️</button>
+                  <button>🔍</button>
+              </div>
+              <button class="close-btn" onclick="togglePanel()">✖</button>
+          </div>
+  
+          <!-- Cuadros de selección de años -->
+          <div class="year-selector">
+             <!-- <div class="year" onclick="selectYear(this)">1980</div> -->
+             <div class="year" onclick="selectYear(this)" data-geojson="data2001.geojson">#</div>
+             <div class="year" onclick="selectYear(this)" data-geojson="data2001.geojson">1991</div>
+             <div class="year" onclick="selectYear(this)" data-geojson="data/nbi_2001.geojson">2001</div>
+             <div class="year" onclick="selectYear(this)" data-geojson="data/nbi_2010.geojson">2010</div>
+             <div class="year selected" onclick="selectYear(this)" data-geojson="data/nbi2022_1.geojson">2022</div>
+          </div>
+  
+          <!-- Información General -->
+          <div class="stats">
+              <h2>Información General</h2>
+              <p><strong>Habitantes:</strong></p>
+              <p><strong>Hogares:</strong></p>
+              <p><strong>Área:</strong></p>
+          </div>
+  
+          <!-- Densidad de Población -->
+          <!-- <h2>Presipitaciones</h2> -->
+          <ul class="density-list">
+              <li><span class="icon blue"></span> Menor 50 mm.</li>
+              <li><span class="icon light-blue"></span> 50 mm. a 80 mm.</li>
+              <li><span class="icon green"></span> 80 mm. a de 100 mm. → 466.714</li>
+          </ul>
+      </div>
+
+       
+      <script defer src="js/menuizquierdo.js"></script>        
+      <script defer src="js/menudeladerecha.js"></script>
+      <script defer src="js/menuizquierdaarriba.js"></script>
+      
+    
+        
+    
+    
+    
+</body>
+</html>
+
+
